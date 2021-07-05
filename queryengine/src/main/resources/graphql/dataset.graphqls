@@ -1,0 +1,23 @@
+type Dataset {
+	id: ID!
+	file: String!
+	description: String
+	source: String
+	topics: [String]
+	extra: String
+	content: Content
+}
+
+extend type Query {
+	findAllDatasets: [Dataset]!
+	countDatasets: Int!
+}
+
+extend type Mutation {
+	createDataset(file: String!, description: String, source: String, topics: [String], extra: String, parent: Int): Dataset!
+	updateDataset(id: ID!, file: String, description: String): Dataset!
+	deleteDataset(id: ID!): Boolean
+}
+
+#String file, String description, String source, List<String> topics, String extra, Long parent (parent still int)
+#Long id, String file, String description

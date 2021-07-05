@@ -1,0 +1,17 @@
+type Content {
+	cid: ID!
+	type: String!
+	extra: String
+}
+
+# Root
+type Query {
+	findAllContents: [Content]!
+	countContents: Int!
+	#this is Long! ?
+}
+
+# Root
+type Mutation {
+	createContent(type: String!, extra: String): Content!
+}
